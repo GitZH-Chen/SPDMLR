@@ -1,0 +1,5 @@
+conf/SPDNet/SPDNetMLR_Kfolds.yaml
+exp_local/
+spdnets/training/spdnets_training_KFold.py
+SPDNet-MLR_Kfolds.py
+. gitignore
