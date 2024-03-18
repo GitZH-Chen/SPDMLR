@@ -1,0 +1,25 @@
+#!/bin/bash
+
+conda activate spddsmbn-venv
+cd /data/zchen/Released_Code/SPDMLR
+
+#inter-session+uda
+python TSMNet-MLR.py -m\
+  evaluation=inter-session+uda\
+  nnet.model.classifier=SPDMLR\
+  nnet.model.metric=SPDLogCholeskyMetric\
+  nnet.model.power=-1.25,-1.5,-1.75,-2.0,1.25,1.5,1.75,2.0
+
+#inter-subject+uda
+python TSMNet-MLR.py -m\
+  evaluation=inter-subject+uda\
+  nnet.model.classifier=SPDMLR\
+  nnet.model.metric=SPDLogCholeskyMetric\
+  nnet.model.power=-1.,-0.25,-0.5,0.25,0.5,1.
+
+python TSMNet-MLR.py -m\
+  evaluation=inter-subject+uda\
+  nnet.model.classifier=SPDMLR\
+  nnet.model.metric=SPDLogCholeskyMetric\
+  nnet.model.power=-1.25,-1.5,-1.75,-2.0,1.25,1.5,1.75,2.0
+

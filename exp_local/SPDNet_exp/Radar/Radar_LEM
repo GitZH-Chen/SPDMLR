@@ -1,0 +1,29 @@
+#!/bin/bash
+
+conda activate spddsmbn-venv
+cd /data/zchen/Released_Code/SPDMLR
+
+#SPDNet
+python SPDNet-MLR.py -m\
+  dataset=RADAR\
+  dataset.path=/data/zchen/Datasets/Radar/Python/\
+  nnet.model.architecture=[20,16,14,12,10,8],[20,16,8]\
+  nnet.model.classifier=LogEigMLR
+
+#SPDNet-SPDMLR-LEM
+python SPDNet-MLR.py -m\
+  dataset=RADAR\
+  dataset.path=/data/zchen/Datasets/Radar/Python/\
+  nnet.model.architecture=[20,16,14,12,10,8],[20,16,8]\
+  nnet.model.classifier=SPDMLR\
+  nnet.model.metric=SPDLogEuclideanMetric\
+  nnet.model.beta=-0.0025,-0.04,0.0025,0.05,1.0,0
+
+#SPDNet-SPDMLR-LCM
+python SPDNet-MLR.py -m\
+  dataset=RADAR\
+  dataset.path=/data/zchen/Datasets/Radar/Python/\
+  nnet.model.architecture=[20,16,14,12,10,8],[20,16,8]\
+  nnet.model.classifier=SPDMLR\
+  nnet.model.metric=SPDLogCholeskyMetric\
+  nnet.model.power=0.5,1.,1.5
