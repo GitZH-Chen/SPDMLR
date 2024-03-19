@@ -18,7 +18,7 @@ If you find this project helpful, please consider citing us as follows:
 
 @inproceedings{chen2024spdmlr,
 title={Riemannian Multinomial Logistics Regression for {SPD} Neural Networks},
-author={Anonymous},
+author={Ziheng Chen and Yue Song and Gaowen Liu and Ramana Rao Kompella and Xiaojun Wu and Nicu Sebe},
 booktitle={Conference on Computer Vision and Pattern Recognition 2024},
 year={2024}
 }
