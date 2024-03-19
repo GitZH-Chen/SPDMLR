@@ -1,7 +1,0 @@
-/exp_local/
-/ablation/
-conf/SPDNet/SPDNetMLR_Kfolds.yaml
-SPDNet-MLR_Kfolds.py
-spdnets/training/spdnets_training_KFold.py
-.gitignore
-
