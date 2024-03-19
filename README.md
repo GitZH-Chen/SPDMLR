@@ -7,6 +7,8 @@
 
 # Riemannian Multinomial Logistics Regression for SPD Neural Networks.
 
+**Note that, I am still working on the final released version.**
+
 This is the official code for our CVPR 2024 publication: *Riemannian Multinomial Logistics Regression for SPD Neural Networks.*. 
 
 [//]: # ([[OpenReview]&#40;https://openreview.net/forum?id=okYdj8Ysru&#41;].)
