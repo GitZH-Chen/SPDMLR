@@ -1,6 +1,7 @@
 model:
     model_type: SPDNet
     init_mode: svd #uniform,svd
+    bimap_manifold: stiefel #euclidean, stiefel
     architecture: [20,16,8]
     classifier: LogEigMLR #LogEigMLR, SPDMLR
     metric: SPDLogCholeskyMetric #SPDLogCholeskyMetric,SPDLogCholeskyMetric

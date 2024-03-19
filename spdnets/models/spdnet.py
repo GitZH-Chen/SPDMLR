@@ -20,10 +20,10 @@ class SPDNet(nn.Module):
 
         for i in range(len(dims) - 2):
             shape=[dims[i], dims[i + 1]]
-            self.feature.append(modules.BiMap(shape,init_mode=args.init_mode))
+            self.feature.append(modules.BiMap(shape,init_mode=args.init_mode,manifold=args.bimap_manifold))
             self.feature.append(modules.ReEig())
 
-        self.feature.append(modules.BiMap([dims[-2], dims[-1]],init_mode=args.init_mode))
+        self.feature.append(modules.BiMap([dims[-2], dims[-1]],init_mode=args.init_mode,manifold=args.bimap_manifold))
         self.feature = nn.Sequential(*self.feature)
 
         self.construct_classifier(args.classifier,dims[-1],args.class_num,args.metric,args.power,args.alpha,args.beta)

@@ -30,7 +30,7 @@ def get_model_name(args):
     else:
         raise NotImplementedError
     optim = f'{args.lr}-{args.optimizer}-{args.weight_decay}'
-    name = f'{optim}-{args.model_type}-{args.init_mode}-{args.classifier}{description}-{args.architecture}-{datetime.datetime.now().strftime("%H_%M")}'
+    name = f'{optim}-{args.model_type}-{args.init_mode}-{args.bimap_manifold}-{args.classifier}{description}-{args.architecture}-{datetime.datetime.now().strftime("%H_%M")}'
     return name
 
 def optimzer(parameters,lr,mode='AMSGRAD',weight_decay=0.):
@@ -59,6 +59,7 @@ def parse_cfg(args,cfg):
     # model
     args.model_type = cfg.nnet.model.model_type
     args.init_mode = cfg.nnet.model.init_mode
+    args.bimap_manifold = cfg.nnet.model.bimap_manifold
     args.architecture = cfg.nnet.model.architecture
     args.classifier = cfg.nnet.model.classifier
     args.metric = cfg.nnet.model.metric

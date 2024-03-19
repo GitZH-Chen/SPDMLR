@@ -6,7 +6,7 @@ from torch.nn.parameter import Parameter
 from torch.types import Number
 import torch.nn as nn
 from geoopt.tensor import ManifoldParameter
-from geoopt.manifolds import Stiefel, Sphere
+from geoopt.manifolds import Stiefel, Sphere, Euclidean
 from . import functionals
 
 class Conv2dWithNormConstraint(torch.nn.Conv2d):
@@ -170,18 +170,22 @@ class BiMap(nn.Module):
         super().__init__()
 
         self.shape=shape;self.manifold=manifold;self.init_mode=init_mode
-        if manifold == 'stiefel':
-            assert(shape[-2] >= shape[-1])
-            mf = Stiefel()
-        elif manifold == 'sphere':
-            mf = Sphere()
-            shape = list(shape)
-            shape[-1], shape[-2] = shape[-2], shape[-1]
+        if manifold == 'euclidean':
+            # mf = Euclidean()
+            self.W = nn.Parameter(torch.empty(shape, **kwargs))
         else:
-            raise NotImplementedError()
+            if manifold == 'stiefel':
+                assert(shape[-2] >= shape[-1])
+                mf = Stiefel()
+            elif manifold == 'sphere':
+                mf = Sphere()
+                shape = list(shape)
+                shape[-1], shape[-2] = shape[-2], shape[-1]
+            else:
+                raise NotImplementedError()
 
-        # add constraint (also initializes the parameter to fulfill the constraint)
-        self.W = ManifoldParameter(torch.empty(shape, **kwargs), manifold=mf)
+            # add constraint (also initializes the parameter to fulfill the constraint)
+            self.W = ManifoldParameter(torch.empty(shape, **kwargs), manifold=mf)
 
         # optionally initialize the weights (initialization has to fulfill the constraint!)
         if W0 is not None:
@@ -190,14 +194,18 @@ class BiMap(nn.Module):
             self.reset_parameters()
     
     def forward(self, X : Tensor) -> Tensor:
-        if isinstance(self.W.manifold, Sphere):
+        if self.manifold=='sphere':
             return self.W @ X @ self.W.transpose(-2,-1)
         else:
             return self.W.transpose(-2,-1) @ X @ self.W
 
     @torch.no_grad()
     def reset_parameters(self):
-        if isinstance(self.W.manifold, Stiefel):
+        if self.manifold=='euclidean':
+            v = torch.empty_like(self.W).uniform_(0., 1.)
+            vv = torch.svd(v.matmul(v.t()))[0][:, :self.W.shape[-1]]
+            self.W.data = vv
+        elif isinstance(self.manifold, 'stiefel'):
             if self.init_mode=='uniform':
                 # uniform initialization on stiefel manifold after theorem 2.2.1 in Chikuse (2003): statistics on special manifolds
                 W = torch.rand(self.W.shape, dtype=self.W.dtype, device=self.W.device)
@@ -213,8 +221,7 @@ class BiMap(nn.Module):
             W.uniform_(-bound, bound)
             # constraint has to be satisfied
             self.W.data = W / W.norm(dim=-1, keepdim=True)
-        else:
-            raise NotImplementedError()
+
 
     def __repr__(self):
         return f"{self.__class__.__name__}(shape={self.shape},manifold={self.manifold},init_mode={self.init_mode})"
