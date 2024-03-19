@@ -5,7 +5,7 @@
 [//]: # ([<img src="https://img.shields.io/badge/OpenReview|pdf-pp7onaiM4VB-8c1b13"></img>]&#40;https://openreview.net/pdf?id=okYdj8Ysru&#41;)
 
 
-# Riemannian Multinomial Logistics Regression for SPD Neural Networks.
+# Riemannian Multinomial Logistics Regression for SPD Neural Networks
 
 **Note that, I am still working on the final released version.**
 
