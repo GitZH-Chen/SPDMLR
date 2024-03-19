@@ -44,12 +44,13 @@ def training_KFold(cfg,args):
         # begin training
         val_acc = training_loop_of_KFold(model, args)
 
+        range=int(10)
         acc_val_all.append(val_acc)
-        last_k = np.array(val_acc)[-10:]
+        last_k = np.array(val_acc)[-range:]
         acc_val_final.append(val_acc[-1])
         acc_val_last_k.append(last_k.max())
 
-    save_print_results(args,acc_val_all,acc_val_final,acc_val_last_k,logger)
+    save_print_results(args,acc_val_all,acc_val_final,acc_val_last_k,logger,range)
     return acc_val_all
 
 
@@ -89,7 +90,7 @@ def training_loop_of_KFold(model, args):
         # print results
         spdnet_utils.print_results(logger, training_time, acc_val, loss_val, epoch, args)
     logger.info(
-        'Fold {}/{}: validation accuracy : {:.2f}% with average time: {:.2f} and average smallest time: {:.2f}'.format(
+        'Fold {}±{}: validation accuracy : {:.2f}% with average time: {:.2f} and average smallest time: {:.2f}'.format(
             args.ith_fold, args.folds, acc_val[-1], np.asarray(training_time[-5:]).mean(),
             np.asarray(sorted(training_time)[:5]).mean()))
 
@@ -106,12 +107,12 @@ def write_final_results(file_path,message):
         file.write(message + "\n")
 
         fcntl.flock(file.fileno(), fcntl.LOCK_UN)
-def save_print_results(args,acc_val_all,acc_val_final,acc_val_last_k,logger):
+def save_print_results(args,acc_val_all,acc_val_final,acc_val_last_k,logger,range):
 
     mean = np.asarray(acc_val_last_k).mean()
     std = np.asarray(acc_val_last_k).std()
-    final_results_last_k = '{} folds last 10 average result is: {:.2f}/{:.2f}'.format(args.folds,mean, std)
-    final_results = '{} folds final_epoch average result is: {:.2f}/{:.2f}'.format(args.folds, np.asarray(acc_val_final).mean(), np.asarray(acc_val_final).std())
+    final_results_last_k = f'{args.folds} folds last {range:d} average result is: {mean:.2f}±{std:.2f}'
+    final_results = '{} folds final_epoch average result is: {:.2f}±{:.2f}'.format(args.folds, np.asarray(acc_val_final).mean(), np.asarray(acc_val_final).std())
     logger.info(final_results_last_k)
     logger.info(final_results)
 
