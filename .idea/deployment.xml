@@ -6,7 +6,7 @@
       <paths name="deva">
         <serverdata>
           <mappings>
-            <mapping deploy="/data/zchen/Released_Code/TSMNetMLR" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/data/zchen/Released_Code/SPDMLR" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
