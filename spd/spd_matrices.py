@@ -17,10 +17,12 @@ class SPDMatrices(nn.Module):
             raise Exception('power should not be zero with power={:.4f}'.format(power))
         self.sgn_power = -1 if self.power < 0 else 1
 
-    def spd_power(self,X):
-        """matrix power of SPD matrices [...,n,n]"""
-        X_power = X if self.power == 1. else sym_powm.apply(X, self.power)
-        return X_power
+    def spd_pow(self, S):
+        if self.power == 1.:
+            Power_S = S;
+        else:
+            Power_S = sym_powm.apply(S, self.power)
+        return Power_S
 
     def RMLR(self, S, P, A):
         """
@@ -74,8 +76,8 @@ class SPDLogCholeskyMetric(SPDMatrices):
         super(__class__, self).__init__(n,power)
 
     def RMLR(self, S, P, A):
-        Power_S = self.spd_power(S)
-        Power_P = self.spd_power(P)
+        Power_S = self.spd_pow(S)
+        Power_P = self.spd_pow(P)
 
         Chol_of_Power_S = th.linalg.cholesky(Power_S)
         Chol_of_Power_P = th.linalg.cholesky(Power_P)

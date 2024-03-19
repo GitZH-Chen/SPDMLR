@@ -13,7 +13,7 @@ def inner_product(A, B):
     """"
     compute the batch inner product of A and B, with [...,n,n] [...,n,n]
     """
-    r_inner_prod = th.einsum("...ij,...ji->...", A, B)
+    r_inner_prod = th.einsum("...ij,...ij->...", A, B)
     return r_inner_prod
 
 
