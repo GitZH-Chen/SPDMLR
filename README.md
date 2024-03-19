@@ -23,7 +23,7 @@ booktitle={Conference on Computer Vision and Pattern Recognition 2024},
 year={2024}
 }
 ```
-
+And also our ICLR24 paper on Riemannian normalization over Lie groups:
 ```bib
 @inproceedings{chen2024liebn,
 title={A Lie Group Approach to Riemannian Batch Normalization},
