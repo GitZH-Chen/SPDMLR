@@ -16,8 +16,7 @@ If you find this project helpful, please consider citing us as follows:
 
 ```bib
 
-@inproceedings{
-anonymous2024riemannian,
+@inproceedings{chen2024spdmlr,
 title={Riemannian Multinomial Logistics Regression for {SPD} Neural Networks},
 author={Anonymous},
 booktitle={Conference on Computer Vision and Pattern Recognition 2024},
@@ -26,7 +25,7 @@ year={2024}
 ```
 
 ```bib
-@inproceedings{chen2024a,
+@inproceedings{chen2024liebn,
 title={A Lie Group Approach to Riemannian Batch Normalization},
 author={Ziheng Chen and Yue Song and Yunmei Liu and Nicu Sebe},
 booktitle={The Twelfth International Conference on Learning Representations},
