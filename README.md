@@ -11,28 +11,29 @@ This is the official code for our CVPR 2024 publication: *Riemannian Multinomial
 
 [//]: # ([[OpenReview]&#40;https://openreview.net/forum?id=okYdj8Ysru&#41;].)
 
-[//]: # (If you find this project helpful, please consider citing us as follows:)
+If you find this project helpful, please consider citing us as follows:
 
-[//]: # ()
-[//]: # (```bib)
 
-[//]: # (@inproceedings{)
+```bib
 
-[//]: # (chen2024a,)
+@inproceedings{
+anonymous2024riemannian,
+title={Riemannian Multinomial Logistics Regression for {SPD} Neural Networks},
+author={Anonymous},
+booktitle={Conference on Computer Vision and Pattern Recognition 2024},
+year={2024}
+}
+```
 
-[//]: # (title={A Lie Group Approach to Riemannian Batch Normalization},)
-
-[//]: # (author={Ziheng Chen and Yue Song and Yunmei Liu and Nicu Sebe},)
-
-[//]: # (booktitle={The Twelfth International Conference on Learning Representations},)
-
-[//]: # (year={2024},)
-
-[//]: # (url={https://openreview.net/forum?id=okYdj8Ysru})
-
-[//]: # (})
-
-[//]: # (```)
+```bib
+@inproceedings{chen2024a,
+title={A Lie Group Approach to Riemannian Batch Normalization},
+author={Ziheng Chen and Yue Song and Yunmei Liu and Nicu Sebe},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=okYdj8Ysru}
+}
+```
 
 In case you have any problem, do not hesitate to contact me ziheng_ch@163.com.
 
