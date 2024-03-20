@@ -82,7 +82,7 @@ To run experiments on the TSMNet, run this command:
 bash exp_eeg.sh
 ```
 
-These scripts contain the experiments shown in Tab. 3-6
+These scripts contain the experiments shown in Tab. 3-5.
 
 **Note:** You also can change the `data_dir` in `exp_eeg.sh` or `xx_path` in `exp_spdnets.sh`, which will override the hydra config.
 
