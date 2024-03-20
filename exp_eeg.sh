@@ -8,7 +8,5 @@ data_dir=/data #change this to your data folder
 [ $? -eq 0 ] && python TSMNet-MLR.py -m data_dir=$data_dir evaluation=inter-subject+uda,inter-session+uda nnet.model.metric=SPDLogEuclideanMetric
 
 ### Experiments on SPDDSMBN+SPDMLR-(\theta)-LCM
-# inter-session
-[ $? -eq 0 ] && python TSMNet-MLR.py -m data_dir=$data_dir evaluation=inter-session+uda nnet.model.metric=SPDLogCholeskyMetric nnet.model.power=1.,1.5
-# inter-subject
-[ $? -eq 0 ] && python TSMNet-MLR.py -m data_dir=$data_dir evaluation=inter-subject+uda nnet.model.metric=SPDLogCholeskyMetric nnet.model.power=1.
+# inter-session inter-subject
+[ $? -eq 0 ] && python TSMNet-MLR.py -m data_dir=$data_dir evaluation=inter-session+uda,inter-subject+uda nnet.model.metric=SPDLogCholeskyMetric nnet.model.power=1.,1.5
