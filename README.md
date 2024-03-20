@@ -1,4 +1,4 @@
-[//]: # ([<img src="https://img.shields.io/badge/arXiv-2206.01323-b31b1b"></img>]&#40;https://arxiv.org/abs/2403.11261&#41;)
+[<img src="https://img.shields.io/badge/arXiv-2206.01323-b31b1b"></img>](https://arxiv.org/abs/2305.11288)
 
 [//]: # ([<img src="https://img.shields.io/badge/OpenReview|forum-pp7onaiM4VB-8c1b13"></img>]&#40;https://openreview.net/forum?id=okYdj8Ysru&#41;)
 
@@ -8,7 +8,7 @@
 # Riemannian Multinomial Logistics Regression for SPD Neural Networks
 
 ---
-**Note:** The code is still being organized. This line will be removed once the organization is complete.
+**Note:** New arxiv version is being submitted
 ---
 
 This is the official code for our CVPR 2024 publication: *Riemannian Multinomial Logistics Regression for SPD Neural Networks*. 
