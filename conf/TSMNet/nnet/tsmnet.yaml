@@ -8,7 +8,7 @@ model:
     bnorm: null
     bnorm_dispersion: null
     classifier: LogEigMLR #LogEigMLR, SPDMLR
-    metric: SPDLogCholeskyMetric #SPDLogCholeskyMetric,SPDLogCholeskyMetric
+    metric: SPDLogCholeskyMetric #SPDLogEuclideanMetric,SPDLogCholeskyMetric
     power: 1.
     alpha: 1.0
     beta: 0.0
