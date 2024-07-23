@@ -80,5 +80,7 @@ These scripts contain the experiments shown in Tabs. 3-5.
 
 **Note:** You also can change the `data_dir` in `exp_eeg.sh` or `xx_path` in `exp_spdnets.sh`, which will override the hydra config.
 
+To reproduce Fig. 1, please run `Hyperplane/SPD_hyperplane_3D.m`
+
 
 
