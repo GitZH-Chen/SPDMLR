@@ -7,6 +7,10 @@
 
 # Riemannian Multinomial Logistics Regression for SPD Neural Networks
 
+  **Update (2025.01):** Please check our  [RMLR](https://arxiv.org/abs/2409.19433)  ([code](https://github.com/GitZH-Chen/RMLR.git)) for additional SPD implementations.
+
+
+
 This is the official code for our CVPR 2024 publication: *Riemannian Multinomial Logistics Regression for SPD Neural Networks*. 
 
 If you find this project helpful, please consider citing us as follows:
